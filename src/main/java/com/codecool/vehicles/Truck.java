@@ -1,5 +1,6 @@
 package com.codecool.vehicles;
 
+import com.codecool.others.Weather;
 import com.codecool.util.RandomEvents;
 
 public class Truck extends Vehicle {
@@ -21,7 +22,7 @@ public class Truck extends Vehicle {
     }
 
     @Override
-    public void prepareForLap() {
+    public void prepareForLap(Weather weather) {
         // Jeżeli ciężarówka jest zepsuta to stoi czyli prędkość 0
         // w przeciwnym wypadku jedzie z domyślną prędkością
         // Przed okrążeniem musimy sprawdzić status czy cięzarówka się nie zespuła

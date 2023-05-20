@@ -1,5 +1,7 @@
 package com.codecool.vehicles;
 
+import com.codecool.others.Weather;
+
 /**
  * Base class of all types of the vehicles.
  */
@@ -12,7 +14,7 @@ public abstract class Vehicle {
     /**
      * Speed with normal without any additional conditions on track and weather.
      */
-    private int normalSpeed;
+    protected int normalSpeed;
 
     protected int actualSpeed;
 
@@ -25,7 +27,7 @@ public abstract class Vehicle {
 
     protected abstract String generateName();
 
-    public abstract void prepareForLap();
+    public abstract void prepareForLap(Weather weather);
 
     public void moveForAnHour() {
         distanceTraveled += actualSpeed;
