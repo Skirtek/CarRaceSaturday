@@ -1,6 +1,5 @@
 package com.codecool.vehicles;
 
-import com.codecool.others.Weather;
 import com.codecool.util.RandomEvents;
 
 public class Truck extends Vehicle {
@@ -17,12 +16,16 @@ public class Truck extends Vehicle {
 
     private int breakdownLapsLeft = 0;
 
-    protected Truck() {
+    public Truck() {
         super(NORMAL_SPEED);
     }
 
+    public boolean isTruckBroken() {
+        return state != TruckState.RUNNING;
+    }
+
     @Override
-    public void prepareForLap(Weather weather) {
+    public void prepareForLap(Race race) {
         // Jeżeli ciężarówka jest zepsuta to stoi czyli prędkość 0
         // w przeciwnym wypadku jedzie z domyślną prędkością
         // Przed okrążeniem musimy sprawdzić status czy cięzarówka się nie zespuła
@@ -34,10 +37,6 @@ public class Truck extends Vehicle {
     protected String generateName() {
         int truckNumber = RandomEvents.nextNumber(MIN_TRUCK_NUMBER, MAX_TRUCK_NUMBER);
         return Integer.toString(truckNumber);
-    }
-
-    private boolean isTruckBroken() {
-        return state != TruckState.RUNNING;
     }
 
     private TruckState getNextState() {

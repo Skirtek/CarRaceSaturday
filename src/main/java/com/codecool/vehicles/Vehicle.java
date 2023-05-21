@@ -27,7 +27,7 @@ public abstract class Vehicle {
 
     protected abstract String generateName();
 
-    public abstract void prepareForLap(Weather weather);
+    public abstract void prepareForLap(Race race);
 
     public void moveForAnHour() {
         distanceTraveled += actualSpeed;

@@ -25,10 +25,10 @@ public class Motorcycle extends Vehicle {
     }
 
     @Override
-    public void prepareForLap(Weather weather) {
+    public void prepareForLap(Race race) {
         actualSpeed = normalSpeed;
 
-        if (weather.isRaining()) {
+        if (race.isRaining()) {
             int slowDown = RandomEvents.nextNumber(MIN_SLOW_DOWN_VALUE, MAX_SLOW_DOWN_VALUE);
             actualSpeed -= slowDown;
         }
